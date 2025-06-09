@@ -15,18 +15,18 @@ public class Movie implements Serializable {
 	}
 
 	 public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getTitolo() {
-        return this.titolo;
+        return titolo;
     }
 
     public String getRegista() {
-        return this.regista;
+        return regista;
     }
 
-    public void setRegista() {
+    public void setRegista(String regista) {
         this.regista = regista;
     }
 

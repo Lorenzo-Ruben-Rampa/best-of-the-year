@@ -15,15 +15,15 @@ public class Song implements Serializable {
 	}
 
 	 public int getId() {
-        return this.id;
+        return id;
     }
 
     public String getTitolo() {
-        return this.titolo;
+        return titolo;
     }
 
        public String getAutore() {
-        return this.autore;
+        return autore;
     }
 
     public void setId(int id) {

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film non trovato</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Ops! Film non trovato</h1>
+        <div class="error-code">Errore 404</div>
+        <p>Il film che stai cercando non è disponibile nella nostra collezione.</p>
+        <p>Potrebbe essere stato rimosso o l'ID inserito non è corretto.</p>
+        <a th:href="@{/movies}" class="btn">Torna alla lista dei film</a>
+        <a th:href="@{/}" class="btn" style="margin-left: 10px;">Torna alla home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio Film</title>
+</head>
+<body>
+    <div th:if="${movie != null}">
+        <h1 th:text="${movie.titolo}"></h1>
+        <p th:text="${'Regista: ' + movie.regista}"></p>
+        <a th:href="@{/movies}">Torna all'elenco film</a>
+    </div>
+    <div th:unless="${movie != null}">
+        <h1>Film non trovato</h1>
+        <p>Nessun film trovato con ID: <span th:text="${id}"></span></p>
+    </div>
+</body>
+</html>

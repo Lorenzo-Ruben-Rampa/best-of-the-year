@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista Film</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div th:object="${movie}">
+            <h1 th:text="*{titolo}"></h1>
+            <p>Autore: <span th:text="*{regista}"></span></p>
+            <p>ID: <span th:text="*{id}"></span></p>
+        </div>  
+    </main>
+    <footer></footer>
+</body>
+</html>

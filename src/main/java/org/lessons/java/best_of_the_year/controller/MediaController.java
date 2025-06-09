@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 @RequestMapping("/")
@@ -54,5 +55,87 @@ public class MediaController {
         bestSongs.add(new Song(2, "Imagine", "John Lennon"));
         bestSongs.add(new Song(3, "Like a Rolling Stone", "Bob Dylan"));
         return bestSongs;
+    }
+
+    //METODI PER ACCEDERE ALL'URL
+    @GetMapping("/movies/{id}/{titolo}")
+    public String movies(Model model, @PathVariable("id") int id, @PathVariable("titolo") String titolo) {
+    // Cerca il film per ID e titolo (ignora maiuscole/minuscole)
+    Movie movieFound = null;
+    List<Movie> movies = getBestMovies(); // Ottieni la lista di film
+    
+    for (Movie m : movies) {
+        if (m.getId() == id) {
+            movieFound = m;
+            break; // Esci dal ciclo appena trovato
+        }
+    }
+
+    if (movieFound == null) {
+        return "movieNotFound"; // Pagina di errore personalizzata
+    }
+
+    model.addAttribute("movie", movieFound);
+    return "movies"; 
+    }
+
+        @GetMapping("/songs/{id}/{titolo}")
+    public String songs(Model model, @PathVariable("id") int id, @PathVariable("titolo") String titolo) {
+    // Cerca il film per ID e titolo (ignora maiuscole/minuscole)
+    Song songFound = null;
+    List<Song> songs = getBestSongs(); // Ottieni la lista di film
+    
+    for (Song s : songs) {
+        if (s.getId() == id) {
+            songFound = s;
+            break; // Esci dal ciclo appena trovato
+        }
+    }
+
+    if (songFound == null) {
+        return "movieNotFound"; // Pagina di errore personalizzata
+    }
+
+    model.addAttribute("song", songFound);
+    return "songs"; 
+    }
+
+    //METODI PER ACCEDERE SOLO CON L'ID NELL'URL
+
+    @GetMapping("/songs/{id}")
+        public String redirectSongById(Model model, @PathVariable("id") int id) {
+        // Ciclo la mia lista di canzoni dal getter
+        Song songFound = null;
+        for (Song s : getBestSongs()) {
+            if (s.getId() == id) {
+                songFound = s;
+                break; 
+            }
+        }
+        // Se la canzone esiste, reindirizza all'URL con ID e titolo
+        if (songFound != null) {
+            return "redirect:/songs/" + id + "/" + songFound.getTitolo();
+        } else {
+            return "songNotFound";
+        }
+    }    
+    
+
+    @GetMapping("/movies/{id}")
+    public String redirectMovieById(@PathVariable("id") int id) {
+        // Trova il film corrispondente all'ID
+        Movie movieFound = null;
+        for (Movie m : getBestMovies()) {
+            if (m.getId() == id) {
+            movieFound = m;
+            break;
+            }
+        } 
+        // Se il film esiste, reindirizza all'URL con ID e titolo
+        if (movieFound != null) {
+            return "redirect:/movies/" + id + "/" + movieFound.getTitolo();
+        } else {
+            return "movieNotFound";
+        }
     }
 }
