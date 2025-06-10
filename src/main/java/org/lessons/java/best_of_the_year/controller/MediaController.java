@@ -61,7 +61,7 @@ public class MediaController {
     //METODI PER ACCEDERE ALL'URL
     @GetMapping("/movies/{id}/{titolo}")
     public String movies(Model model, @PathVariable("id") int id, @PathVariable("titolo") String titolo) {
-    // Cerca il film per ID e titolo (ignora maiuscole/minuscole)
+    // Cerca il film per ID e titolo 
     Movie movieFound = null;
     List<Movie> movies = getBestMovies(); // Ottieni la lista di film
     
@@ -82,7 +82,7 @@ public class MediaController {
 
         @GetMapping("/songs/{id}/{titolo}")
     public String songs(Model model, @PathVariable("id") int id, @PathVariable("titolo") String titolo) {
-    // Cerca il film per ID e titolo (ignora maiuscole/minuscole)
+    // Cerca il film per ID e titolo
     Song songFound = null;
     List<Song> songs = getBestSongs(); // Ottieni la lista di film
     
