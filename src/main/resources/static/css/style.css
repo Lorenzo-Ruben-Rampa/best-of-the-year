@@ -1,11 +1,27 @@
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x600');
             background-size: cover;
             background-position: center;
-            color: white;
             padding: 100px 0;
         }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            border: 1px solid black;
+        }
+
         footer {
             background-color: #f8f9fa;
             padding: 20px 0;
+        }
+
+
+        .inline {
+            display: inline;
+        }
+
+        .header {
+            height: 100px;
         }

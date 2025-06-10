@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class MediaController {
 
     @GetMapping ("/")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("name", "Lorenzo");
         return "home";
     }
 
-    @GetMapping("/root")
-    //Metodo rotta root che ritorna il mio nome
-    public String root(Model model) {
-        model.addAttribute("name", "Lorenzo");
-        return "root"; 
-    }
+    // @GetMapping("/root")
+    // //Metodo rotta root che ritorna il mio nome
+    // public String root(Model model) {
+    //     model.addAttribute("name", "Lorenzo");
+    //     return "root"; 
+    // }
 
         // Endpoint pubblico per i film
     @GetMapping("/movies")

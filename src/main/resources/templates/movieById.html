@@ -2,17 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Dettaglio Film</title>
+    <title>Dettaglio Canzone</title>
+    <th:block th:insert="~{fragments :: styles}"></th:block>
 </head>
 <body>
-    <div th:if="${movie != null}">
-        <h1 th:text="${movie.titolo}"></h1>
-        <p th:text="${'Regista: ' + movie.regista}"></p>
-        <a th:href="@{/movies}">Torna all'elenco film</a>
-    </div>
-    <div th:unless="${movie != null}">
-        <h1>Film non trovato</h1>
-        <p>Nessun film trovato con ID: <span th:text="${id}"></span></p>
-    </div>
+    <header>        
+        <th:block th:insert="~{fragments :: header}"></th:block>
+    </header>
+    <main>
+        <section class="hero-section text-center p-3 mt-5">
+            <div class="container w-50">
+                <div th:if="${movie != null}">
+                    <h1 th:text="${movie.titolo}"></h1>
+                    <h2 class="text-warning" th:text="${'Regista: ' + movie.regista}"></h2>
+                    <a th:href="@{/movies}">Torna all'elenco film</a>
+                    <p class="mt-4"><strong>Trama: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. A iste sed explicabo ducimus incidunt, harum, molestiae amet, illum unde sit ipsa. Ad quas quam nesciunt ipsum similique quaerat consectetur natus.</p>
+                </div>
+                <div th:unless="${movie != null}">
+                    <h1>Film non trovato</h1>
+                    <p>Nessun film trovato con ID: <span th:text="${id}"></span></p>
+            </div>
+                </div>
+        </section>   
+    </main>
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.min.js}"></script>
 </body>
 </html>

@@ -11,34 +11,31 @@
 <body>
     <!-- Header con Navbar -->
     <header>
-        <div class="d-flex justify-content-center w100">
-            <h1 class="text-center">Best of the Year</h1>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/movies}">Film</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/songs}">Canzoni</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="bg-dark header">
+        <div class="row d-flex w100 align-items-center p-2">
+            <div class="col-md-3">
+                <h1 class="text-center text-danger">Best of the Year</h1>
             </div>
-        </nav>
+            <div class="col-md-9 d-flex justify-content-start">
+                <nav>
+                        <a class="btn btn-primary btn-lg mx-2" th:href="@{/movies}">Film</a>
+                </nav>
+                <nav>
+                    <a class="btn btn-primary btn-lg mx-2" th:href="@{/songs}">Canzoni</a>
+                </nav>
+                </ul>
+            </div>
+        </div>
+    </nav>
     </header>
 
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero-section text-center mb-5">
-            <div class="container">
-                <h1 th:text= "'Best of the year by ' + ${name}"></h1>  
+        <section class="hero-section text-center p-3">
+            <div class="container mt-2">
+                <h1 th:text= "'Best of the year by ' + ${name}"></h1>
+                <img class="w-50" alt="coming-soon" th:src="@{img/coming-soon.jpg}"/>  
                 <p class="lead">Scopri i migliori film e canzoni dell'anno</p>
                 <div class="mt-4">
                     <a th:href="@{/movies}" class="btn btn-primary btn-lg mx-2">Vedi i film</a>
@@ -75,7 +72,7 @@
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2023 Best of the Year. Tutti i diritti riservati.</p>
+            <p class="mb-0">&copy; 2025 Best of the Year. Tutti i diritti riservati.</p>
         </div>
     </footer>
 

@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Dettaglio Canzone</title>
+    <th:block th:insert="~{fragments :: styles}"></th:block>
 </head>
 <body>
-    <div th:if="${song != null}">
-        <h1 th:text="${song.titolo}"></h1>
-        <p th:text="${'Artista: ' + song.autore}"></p>
-        <a th:href="@{/songs}">Torna all'elenco canzoni</a>
-    </div>
-    <div th:unless="${song != null}">
-        <h1>Canzone non trovata</h1>
-        <p>Nessuna canzone trovata con ID: <span th:text="${id}"></span></p>
-    </div>
+    <header>        
+        <th:block th:insert="~{fragments :: header}"></th:block>
+    </header>
+    <main>
+        <section class="hero-section text-center p-3 mt-5">
+            <div class="container w-50">
+                <div th:if="${song != null}">
+                    <h1 th:text="${song.titolo}"></h1>
+                    <h2 class="text-warning" th:text="${'Artista: ' + song.autore}"></h2>
+                    <a th:href="@{/songs}">Torna all'elenco canzoni</a>
+                    <p class="mt-4"><strong>Testo: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. A iste sed explicabo ducimus incidunt, harum, molestiae amet, illum unde sit ipsa. Ad quas quam nesciunt ipsum similique quaerat consectetur natus.</p>
+                </div>
+            <div th:unless="${song != null}">
+                <h1>Canzone non trovata</h1>
+                <p>Nessuna canzone trovata con ID: <span th:text="${id}"></span></p>
+            </div>  
+        </section>   
+    </main>
 </body>
 </html>
