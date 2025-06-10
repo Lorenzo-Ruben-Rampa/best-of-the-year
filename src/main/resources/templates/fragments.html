@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home - Best of the Year</title>
+    <th:block th:fragment="styles">
     <!-- Bootstrap CSS -->
-    <th:block th:insert="~{fragments :: styles}"></th:block>
-    
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{css/application.css}"> 
+    </th:block>
+    <!-- Custom CSS -->
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header con Navbar -->
@@ -38,14 +54,14 @@
         <!-- Hero Section -->
         <section class="hero-section text-center mb-5">
             <div class="container">
-                <h1 th:text= "'Best of the year by ' + ${name}"></h1>  
+                <h1 class="display-4 fw-bold">Ciao, sono la tua homepage!</h1>
                 <p class="lead">Scopri i migliori film e canzoni dell'anno</p>
                 <div class="mt-4">
                     <a th:href="@{/movies}" class="btn btn-primary btn-lg mx-2">Vedi i film</a>
-                    <a th:href="@{/songs}" class="btn btn-primary btn-lg mx-2">Vedi le canzoni</a>
+                    <a th:href="@{/songs}" class="btn btn-outline-light btn-lg mx-2">Vedi le canzoni</a>
                 </div>
             </div>
-        </section>  
+        </section>
 
         <!-- Cards Section -->
         <section class="container mb-5">

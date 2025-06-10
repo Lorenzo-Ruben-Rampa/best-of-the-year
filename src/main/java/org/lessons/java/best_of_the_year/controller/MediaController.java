@@ -19,7 +19,7 @@ public class MediaController {
     }
 
     @GetMapping("/root")
-    //Metodo rotta root
+    //Metodo rotta root che ritorna il mio nome
     public String root(Model model) {
         model.addAttribute("name", "Lorenzo");
         return "root"; 
@@ -76,7 +76,7 @@ public class MediaController {
     }
 
     model.addAttribute("movie", movieFound);
-    return "movies"; 
+    return "movieById"; 
     }
 
         @GetMapping("/songs/{id}/{titolo}")
@@ -97,7 +97,7 @@ public class MediaController {
     }
 
     model.addAttribute("song", songFound);
-    return "songs"; 
+    return "songById"; 
     }
 
     //METODI PER ACCEDERE SOLO CON L'ID NELL'URL

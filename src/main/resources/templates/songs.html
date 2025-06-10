@@ -2,14 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista Canzoni</title>
+        <th:block th:insert="~{fragments :: styles}"></th:block>
 </head>
 <body>
     <header></header>
     <main>
-        <div th:object="${song}">
-            <h1 th:text="*{titolo}"></h1>
-            <p>Autore: <span th:text="*{autore}"></span></p>
-            <p>ID: <span th:text="*{id}"></span></p>
+        <h1>Lista Canzoni</h1>
+        <ul>
+            <li th:each="song : ${songs}">
+                <span><h2 class="card-title" th:text="${song.titolo}"></h2></span>
+                <span><p class="card-text" th:text="${song.autore}"></p></span>
+                <a th:href="@{/songs/{id}/{titolo}(id=${song.id}, titolo=${song.titolo})}" class="btn btn-primary btn-lg mx-2">Vedi Dettagli Canzone</a>
+
+            </li>
+        </ul>
+        <div th:unless="${song != null}">
+            <p>Canzone non trovata!</p>
         </div>
     </main>
     <footer></footer>

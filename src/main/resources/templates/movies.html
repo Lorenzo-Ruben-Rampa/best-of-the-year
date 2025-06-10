@@ -2,15 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista Film</title>
+        <th:block th:insert="~{fragments :: styles}"></th:block>
 </head>
 <body>
     <header></header>
     <main>
-        <div th:object="${movie}">
-            <h1 th:text="*{titolo}"></h1>
-            <p>Autore: <span th:text="*{regista}"></span></p>
-            <p>ID: <span th:text="*{id}"></span></p>
-        </div>  
+        <h1>Lista Film</h1>
+        <ul>
+            <li th:each="movie : ${movies}">
+                <span> <h2 class="card-title" th:text="${movie.titolo}"></h2></span>
+                <span><p class="card-text" th:text="${movie.regista}"></p></span>
+                <a th:href="@{/movies/{id}/{titolo}(id=${movie.id}, titolo=${movie.titolo})}" class="btn btn-primary btn-lg mx-2">Vedi Dettagli Film</a>
+            </li>
+        </ul>
+        <div th:unless="${movie != null}">
+            <p>Film non trovato!</p>
+        </div>
     </main>
     <footer></footer>
 </body>
